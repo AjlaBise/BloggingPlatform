@@ -12,11 +12,17 @@ namespace BloggingPlatform.Controllers
     [ApiController]
     public class PostController : ControllerBase
     {
-        private readonly IPostService _context;
+        private readonly IPostService _post;
 
-        public PostController(IPostService context)
+        public PostController(IPostService post)
         {
-            _context = context;
+            _post = post;
+        }
+
+        [HttpGet]
+        public List<Dal.Models.Post> GetAll()
+        {
+            return _post.GetAll();
         }
 
         [HttpPost]
@@ -24,7 +30,7 @@ namespace BloggingPlatform.Controllers
         {
             try
             {
-                return _context.Insert(post);
+                return _post.Insert(post);
             }
             catch (Exception e)
             {

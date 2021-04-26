@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using BloggingPlatform.Dal.Context;
 using BloggingPlatform.Dal.Services.Interface;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BloggingPlatform.Dal.Services
 {
@@ -13,6 +15,13 @@ namespace BloggingPlatform.Dal.Services
         {
             _context = context;
             _mapper = mapper;
+        }
+
+        public List<Models.Post> GetAll()
+        {
+            var listPosts = _context.Posts.ToList();
+
+            return _mapper.Map<List<Models.Post>>(listPosts);
         }
 
         public Models.Post Insert(Models.Post post)
