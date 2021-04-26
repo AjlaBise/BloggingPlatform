@@ -4,14 +4,16 @@ using BloggingPlatform.Dal.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BloggingPlatform.Dal.Migrations
 {
     [DbContext(typeof(BloggingPlatformDbContext))]
-    partial class BloggingPlatformDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210426175235_Add-Data")]
+    partial class AddData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -19,7 +21,7 @@ namespace BloggingPlatform.Dal.Migrations
                 .HasAnnotation("ProductVersion", "5.0.5")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("BloggingPlatform.Dal.Database.Post", b =>
+            modelBuilder.Entity("BloggingPlatform.Dal.Post", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -58,23 +60,23 @@ namespace BloggingPlatform.Dal.Migrations
                         {
                             Id = 1,
                             Body = "The app is simple to use, and will help you decide on your best furniture fit.",
-                            CreatedAt = new DateTime(2021, 4, 22, 21, 39, 10, 468, DateTimeKind.Local).AddTicks(6085),
+                            CreatedAt = new DateTime(2021, 4, 22, 19, 52, 34, 656, DateTimeKind.Local).AddTicks(2656),
                             Description = "Rubicon Software Development and Gazzda furniture are proud to launch an augmented reality app.",
                             Slug = "augmented-reality-ios-application",
                             Tag = 1,
                             Title = "Augmented Reality iOS Application",
-                            UpdatedAt = new DateTime(2021, 4, 25, 21, 39, 10, 473, DateTimeKind.Local).AddTicks(7228)
+                            UpdatedAt = new DateTime(2021, 4, 25, 19, 52, 34, 660, DateTimeKind.Local).AddTicks(3603)
                         },
                         new
                         {
                             Id = 2,
                             Body = "The app is simple to use, and will help you decide on your best furniture fit.",
-                            CreatedAt = new DateTime(2021, 4, 24, 21, 39, 10, 473, DateTimeKind.Local).AddTicks(8313),
+                            CreatedAt = new DateTime(2021, 4, 24, 19, 52, 34, 660, DateTimeKind.Local).AddTicks(4530),
                             Description = "Rubicon Software Development and Gazzda furniture are proud to launch an augmented reality app.",
                             Slug = "augmented-reality-ios-application 2",
                             Tag = 1,
                             Title = "Augmented Reality iOS Application 2",
-                            UpdatedAt = new DateTime(2021, 4, 26, 21, 39, 10, 473, DateTimeKind.Local).AddTicks(8348)
+                            UpdatedAt = new DateTime(2021, 4, 26, 19, 52, 34, 660, DateTimeKind.Local).AddTicks(4562)
                         });
                 });
 #pragma warning restore 612, 618

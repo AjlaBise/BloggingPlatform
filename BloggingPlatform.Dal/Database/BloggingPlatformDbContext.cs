@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BloggingPlatform.Dal.Database;
+using Microsoft.EntityFrameworkCore;
 
 namespace BloggingPlatform.Dal.Context
 {
-    public class BloggingPlatformDbContext : DbContext
+    public partial class BloggingPlatformDbContext : DbContext
     {
 
         public DbSet<Post> Posts { get; set; }
@@ -21,6 +22,8 @@ namespace BloggingPlatform.Dal.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<Post>(entity =>
             {
                 entity.ToTable("Post");
@@ -30,6 +33,9 @@ namespace BloggingPlatform.Dal.Context
                 .HasMaxLength(25);
             });
 
+            OnModelCreatingPartial(modelBuilder);
         }
+
+        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }

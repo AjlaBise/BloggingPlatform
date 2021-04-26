@@ -1,4 +1,6 @@
 using BloggingPlatform.Dal.Context;
+using BloggingPlatform.Dal.Services;
+using BloggingPlatform.Dal.Services.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -19,12 +21,15 @@ namespace BloggingPlatform
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAutoMapper(typeof(Startup));
+            
             services.AddSwaggerGen();
             services.AddControllers();
+            services.AddAutoMapper(typeof(Startup));
 
             var connectionString = Configuration.GetConnectionString("bloggingPlatform");
             services.AddDbContext<BloggingPlatformDbContext>(builder => builder.UseSqlServer(connectionString));
+
+            services.AddScoped<IPostService, PostService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
