@@ -7,5 +7,7 @@ namespace BloggingPlatform.Dal.Services.Interface
         Models.Post Insert(Models.Post post);
 
         List<Models.Post> GetAll();
+
+        Models.Post Update(int id, Models.Post post);
     }
 }

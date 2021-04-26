@@ -33,5 +33,19 @@ namespace BloggingPlatform.Dal.Services
 
             return _mapper.Map<Models.Post>(postEntity);
         }
+
+        public Models.Post Update(int id, Models.Post post)
+        {
+            var postEntity = _context.Posts.Find(id);
+
+            _context.Posts.Attach(postEntity);
+            _context.Posts.Update(postEntity);
+
+            _mapper.Map(post, postEntity);
+
+            _context.SaveChanges();
+
+            return _mapper.Map<Models.Post>(postEntity);
+        }
     }
 }

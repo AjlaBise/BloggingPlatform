@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using BloggingPlatform.Dal.Services.Interface;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BloggingPlatform.Controllers
@@ -39,5 +36,18 @@ namespace BloggingPlatform.Controllers
             return null;
         }
 
+        [HttpPut("{id}")]
+        public Dal.Models.Post Update(int id, Dal.Models.Post post)
+        {
+            try
+            {
+                return _post.Update(id, post);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return null;
+        }
     }
 }
