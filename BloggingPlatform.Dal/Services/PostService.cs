@@ -17,6 +17,18 @@ namespace BloggingPlatform.Dal.Services
             _mapper = mapper;
         }
 
+        public bool Delete(int id)
+        {
+            var entityPost = _context.Posts.Find(id);
+            if (entityPost != null)
+            {
+                _context.Remove(entityPost);
+                _context.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+
         public List<Models.Post> GetAll()
         {
             var listPosts = _context.Posts.ToList();

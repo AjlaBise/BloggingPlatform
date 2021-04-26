@@ -9,5 +9,7 @@ namespace BloggingPlatform.Dal.Services.Interface
         List<Models.Post> GetAll();
 
         Models.Post Update(int id, Models.Post post);
+
+        bool Delete(int id);
     }
 }

@@ -49,5 +49,11 @@ namespace BloggingPlatform.Controllers
             }
             return null;
         }
+
+        [HttpDelete("{id}")]
+        public bool Delete (int id)
+        {
+            return _post.Delete(id);
+        }
     }
 }
