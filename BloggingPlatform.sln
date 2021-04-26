@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30330.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BloggingPlatform", "BloggingPlatform\BloggingPlatform.csproj", "{EC87D26E-E625-43A0-95B9-170D1A15B5AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BloggingPlatform.Dal", "BloggingPlatform.Dal\BloggingPlatform.Dal.csproj", "{38B126C1-23E8-41C8-99C7-FB7A81AB8AAF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC87D26E-E625-43A0-95B9-170D1A15B5AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC87D26E-E625-43A0-95B9-170D1A15B5AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC87D26E-E625-43A0-95B9-170D1A15B5AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC87D26E-E625-43A0-95B9-170D1A15B5AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38B126C1-23E8-41C8-99C7-FB7A81AB8AAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38B126C1-23E8-41C8-99C7-FB7A81AB8AAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38B126C1-23E8-41C8-99C7-FB7A81AB8AAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38B126C1-23E8-41C8-99C7-FB7A81AB8AAF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {90DDCAFE-9087-452B-AD23-13AB48278D9B}
+	EndGlobalSection
+EndGlobal
