@@ -32,7 +32,7 @@ namespace BloggingPlatform.Dal.Services
 
         public List<Models.Post> GetAll()
         {
-            var listPosts = _context.Posts.ToList();
+            var listPosts = _context.Posts.OrderByDescending(x => x.CreatedAt).ToList();
 
             return _mapper.Map<List<Models.Post>>(listPosts);
         }
