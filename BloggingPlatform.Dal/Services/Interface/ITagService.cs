@@ -5,6 +5,6 @@ namespace BloggingPlatform.Dal.Services.Interface
 {
     public interface ITagService
     {
-        List<Tag> GetAllTag();
+        List<string> GetAllTag();
     }
 }

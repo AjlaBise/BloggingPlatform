@@ -7,13 +7,14 @@ namespace BloggingPlatform.Dal.Services.Interface
 {
     public class TagService : ITagService
     {
-        public List<Tag> GetAllTag()
+        public List<string> GetAllTag()
         {
-            List<Tag> tags = Enum.GetValues(typeof(Tag))
-                          .Cast<Tag>()
-                          .ToList();
+            return Enum.GetNames(typeof(Tag)).ToList();
+            //List<Tag> tags = Enum.GetValues(typeof(Tag))
+            //              .Cast<Tag>()
+            //              .ToList();
 
-            return tags;
+            //return tags;
         }
     }
 }

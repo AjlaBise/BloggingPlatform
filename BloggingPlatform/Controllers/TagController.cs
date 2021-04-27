@@ -17,7 +17,7 @@ namespace BloggingPlatform.Controllers
         }
 
         [HttpGet]
-        public List<Tag> GetAllTag()
+        public List<string> GetAllTag()
         {
             return _tag.GetAllTag();
         }
