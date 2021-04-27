@@ -31,29 +31,14 @@ namespace BloggingPlatform.Controllers
         [HttpPost]
         public Dal.Models.CreatePostModel Insert([FromBody] Dal.Models.CreatePostModel post)
         {
-            try
-            {
+
                 return _post.Insert(post);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            return null;
         }
 
         [HttpPut("{slug}")]
         public Dal.Models.Post Update(string slug, Dal.Models.Post post)
         {
-            try
-            {
-                return _post.Update(slug, post);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            return null;
+            return _post.Update(slug, post);
         }
 
         [HttpDelete("{slug}")]

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BloggingPlatform.Dal.Database;
 using BloggingPlatform.Dal.Services.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -46,33 +47,79 @@ namespace BloggingPlatform.Dal.Services
 
         public Models.CreatePostModel Insert(Models.CreatePostModel post)
         {
-            var postEntity = _mapper.Map<Database.Post>(post);
+            try
+            {
+                var postEntity = new Post
+                {
+                    Slug = CreateSlugWithEnglishChar_CreatePost(post),
+                    Title = post.Title,
+                    Description = post.Description,
+                    Body = post.Body,
+                    Tag = post.Tag,
+                    CreatedAt = post.CreatedAt,
+                    UpdatedAt = post.UpdatedAt
+                };
 
-            _context.Posts.Add(postEntity);
-            _context.SaveChanges();
+                _context.Posts.Add(postEntity);
+                _context.SaveChanges();
 
-            return _mapper.Map<Models.CreatePostModel>(postEntity);
+                return _mapper.Map<Models.CreatePostModel>(postEntity);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
         public Models.Post Update(string slug, Models.Post post)
         {
-            
-            var postEntity = _context.Posts.Where(x => x.Slug == slug).FirstOrDefault();
+            try
+            {
+                var postEntity = _context.Posts.Where(x => x.Slug == slug).FirstOrDefault();
 
-            postEntity.Slug = post.Title.ToLower().Replace(" ", "-");
-            postEntity.Title = post.Title;
-            postEntity.Description = post.Description;
-            postEntity.Body = post.Body;
-            postEntity.Tag = post.Tag;
-            postEntity.CreatedAt = post.CreatedAt;
-            postEntity.UpdatedAt = post.UpdatedAt;
+                postEntity.Slug = CreateSlugWithEnglishChar(post);
+                postEntity.Title = post.Title;
+                postEntity.Description = post.Description;
+                postEntity.Body = post.Body;
+                postEntity.Tag = post.Tag;
+                postEntity.CreatedAt = post.CreatedAt;
+                postEntity.UpdatedAt = post.UpdatedAt;
 
-            _context.Posts.Attach(postEntity);
-            _context.Posts.Update(postEntity);
+                _context.Posts.Attach(postEntity);
+                _context.Posts.Update(postEntity);
 
-            _context.SaveChanges();
+                _context.SaveChanges();
 
-            return _mapper.Map<Models.Post>(postEntity);
+                return _mapper.Map<Models.Post>(postEntity);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        private string CreateSlugWithEnglishChar(Models.Post post)
+        {
+            var slug = post.Title
+                            .ToLower().Replace(" ", "-")
+                            .Replace("?", "").Replace(".", "").Replace("!", "");
+
+            byte[] tempBytes;
+            tempBytes = System.Text.Encoding.GetEncoding("ISO-8859-8").GetBytes(slug);
+
+            return System.Text.Encoding.UTF8.GetString(tempBytes);
+        }
+
+        private string CreateSlugWithEnglishChar_CreatePost(Models.CreatePostModel post)
+        {
+            var slug = post.Title
+                            .ToLower().Replace(" ", "-")
+                            .Replace("?", "").Replace(".", "").Replace("!", "");
+
+            byte[] tempBytes;
+            tempBytes = System.Text.Encoding.GetEncoding("ISO-8859-8").GetBytes(slug);
+
+            return System.Text.Encoding.UTF8.GetString(tempBytes);
         }
     }
 }
