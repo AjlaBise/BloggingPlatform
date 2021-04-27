@@ -37,6 +37,13 @@ namespace BloggingPlatform.Dal.Services
             return _mapper.Map<List<Models.Post>>(listPosts);
         }
 
+        public Models.Post GetBySlug(string slug)
+        {
+            var postEntity = _context.Posts.Where(p => p.Slug == slug).FirstOrDefault();
+
+            return _mapper.Map<Models.Post>(postEntity);
+        }
+
         public Models.CreatePostModel Insert(Models.CreatePostModel post)
         {
             var postEntity = _mapper.Map<Database.Post>(post);

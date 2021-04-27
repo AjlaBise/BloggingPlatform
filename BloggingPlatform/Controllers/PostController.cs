@@ -22,6 +22,12 @@ namespace BloggingPlatform.Controllers
             return _post.GetAll();
         }
 
+        [HttpGet("{slug}")]
+        public Dal.Models.Post GetBySlug(string slug)
+        {
+            return _post.GetBySlug(slug);
+        }
+
         [HttpPost]
         public Dal.Models.CreatePostModel Insert([FromBody] Dal.Models.CreatePostModel post)
         {
