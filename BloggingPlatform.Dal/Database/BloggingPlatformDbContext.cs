@@ -1,7 +1,7 @@
 ﻿using BloggingPlatform.Dal.Database;
 using Microsoft.EntityFrameworkCore;
 
-namespace BloggingPlatform.Dal.Context
+namespace BloggingPlatform.Dal.Database
 {
     public partial class BloggingPlatformDbContext : DbContext
     {
@@ -22,15 +22,25 @@ namespace BloggingPlatform.Dal.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
-
             modelBuilder.Entity<Post>(entity =>
             {
                 entity.ToTable("Post");
 
                 entity.Property(e => e.Slug)
                 .IsRequired()
-                .HasMaxLength(25);
+                .HasMaxLength(100);
+
+                entity.Property(e => e.Title)
+               .IsRequired()
+               .HasMaxLength(50);
+
+                entity.Property(e => e.Description)
+               .IsRequired()
+               .HasMaxLength(250);
+
+                entity.Property(e => e.Body)
+               .IsRequired()
+               .HasMaxLength(250);
             });
 
             OnModelCreatingPartial(modelBuilder);

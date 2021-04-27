@@ -1,4 +1,4 @@
-using BloggingPlatform.Dal.Context;
+using BloggingPlatform.Dal.Database;
 using BloggingPlatform.Dal.Services;
 using BloggingPlatform.Dal.Services.Interface;
 using Microsoft.AspNetCore.Builder;

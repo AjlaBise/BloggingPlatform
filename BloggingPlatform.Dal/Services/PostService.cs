@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using BloggingPlatform.Dal.Context;
+using BloggingPlatform.Dal.Database;
 using BloggingPlatform.Dal.Services.Interface;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +17,10 @@ namespace BloggingPlatform.Dal.Services
             _mapper = mapper;
         }
 
-        public bool Delete(int id)
+        public bool Delete(string slug)
         {
-            var entityPost = _context.Posts.Find(id);
+            var entityPost = _context.Posts.Where(x => x.Slug == slug).FirstOrDefault();
+
             if (entityPost != null)
             {
                 _context.Remove(entityPost);
@@ -46,14 +47,20 @@ namespace BloggingPlatform.Dal.Services
             return _mapper.Map<Models.Post>(postEntity);
         }
 
-        public Models.Post Update(int id, Models.Post post)
+        public Models.Post Update(string slug, Models.Post post)
         {
-            var postEntity = _context.Posts.Find(id);
+            var postEntity = _context.Posts.Where(x => x.Slug == slug).FirstOrDefault();
+
+            postEntity.Slug = post.Title.ToLower().Replace(" ", "-");
+            postEntity.Title = post.Title;
+            postEntity.Description = post.Description;
+            postEntity.Body = post.Body;
+            postEntity.Tag = post.Tag;
+            postEntity.CreatedAt = post.CreatedAt;
+            postEntity.UpdatedAt = post.UpdatedAt;
 
             _context.Posts.Attach(postEntity);
             _context.Posts.Update(postEntity);
-
-            _mapper.Map(post, postEntity);
 
             _context.SaveChanges();
 

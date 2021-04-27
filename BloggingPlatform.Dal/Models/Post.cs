@@ -1,6 +1,5 @@
 ﻿using BloggingPlatform.Dal.Helper;
 using System;
-
 namespace BloggingPlatform.Dal.Models
 {
     public partial class Post

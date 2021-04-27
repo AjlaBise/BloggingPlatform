@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 
-namespace BloggingPlatform.Dal.Context
+namespace BloggingPlatform.Dal.Database
 {
     public partial class BloggingPlatformDbContext
     {
@@ -11,7 +11,7 @@ namespace BloggingPlatform.Dal.Context
         {
             #region Dodavanje postova
             modelBuilder.Entity<Post>().HasData(
-                new Post()
+                new Post
                 {
                     Id = 1,
                     Slug = "augmented-reality-ios-application",
@@ -22,7 +22,7 @@ namespace BloggingPlatform.Dal.Context
                     CreatedAt = DateTime.Now.AddDays(-4),
                     UpdatedAt = DateTime.Now.AddDays(-1)
                 },
-                 new Post()
+                 new Post
                  {
                      Id = 2,
                      Slug = "augmented-reality-ios-application 2",

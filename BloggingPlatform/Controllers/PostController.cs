@@ -36,12 +36,12 @@ namespace BloggingPlatform.Controllers
             return null;
         }
 
-        [HttpPut("{id}")]
-        public Dal.Models.Post Update(int id, Dal.Models.Post post)
+        [HttpPut("{slug}")]
+        public Dal.Models.Post Update(string slug, Dal.Models.Post post)
         {
             try
             {
-                return _post.Update(id, post);
+                return _post.Update(slug, post);
             }
             catch (Exception e)
             {
@@ -50,10 +50,10 @@ namespace BloggingPlatform.Controllers
             return null;
         }
 
-        [HttpDelete("{id}")]
-        public bool Delete (int id)
+        [HttpDelete("{slug}")]
+        public bool Delete (string slug)
         {
-            return _post.Delete(id);
+            return _post.Delete(slug);
         }
     }
 }

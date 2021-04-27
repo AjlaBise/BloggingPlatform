@@ -8,8 +8,8 @@ namespace BloggingPlatform.Dal.Services.Interface
 
         List<Models.Post> GetAll();
 
-        Models.Post Update(int id, Models.Post post);
+        Models.Post Update(string slug, Models.Post post);
 
-        bool Delete(int id);
+        bool Delete(string slug);
     }
 }
