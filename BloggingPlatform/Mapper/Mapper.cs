@@ -11,6 +11,7 @@ namespace BloggingPlatform.Dal.Mapper
         public Mapper()
         {
             CreateMap<Database.Post, Models.Post>().ReverseMap();
+            CreateMap<Database.Post, Models.CreatePostModel>().ReverseMap();
         }
     }
 }

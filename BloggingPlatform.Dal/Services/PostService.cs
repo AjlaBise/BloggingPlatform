@@ -37,14 +37,14 @@ namespace BloggingPlatform.Dal.Services
             return _mapper.Map<List<Models.Post>>(listPosts);
         }
 
-        public Models.Post Insert(Models.Post post)
+        public Models.CreatePostModel Insert(Models.CreatePostModel post)
         {
             var postEntity = _mapper.Map<Database.Post>(post);
 
             _context.Posts.Add(postEntity);
             _context.SaveChanges();
 
-            return _mapper.Map<Models.Post>(postEntity);
+            return _mapper.Map<Models.CreatePostModel>(postEntity);
         }
 
         public Models.Post Update(string slug, Models.Post post)

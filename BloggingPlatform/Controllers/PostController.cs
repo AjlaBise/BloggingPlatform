@@ -23,7 +23,7 @@ namespace BloggingPlatform.Controllers
         }
 
         [HttpPost]
-        public Dal.Models.Post Insert([FromBody] Dal.Models.Post post)
+        public Dal.Models.CreatePostModel Insert([FromBody] Dal.Models.CreatePostModel post)
         {
             try
             {
