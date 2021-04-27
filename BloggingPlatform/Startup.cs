@@ -30,6 +30,7 @@ namespace BloggingPlatform
             services.AddDbContext<BloggingPlatformDbContext>(builder => builder.UseSqlServer(connectionString));
 
             services.AddScoped<IPostService, PostService>();
+            services.AddScoped<ITagService, TagService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

@@ -1,14 +1,19 @@
 ﻿using AutoMapper;
 using BloggingPlatform.Dal.Database;
+using BloggingPlatform.Dal.Helper;
+using BloggingPlatform.Dal.Models;
 using BloggingPlatform.Dal.Services.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace BloggingPlatform.Dal.Services
 {
     public class PostService : IPostService
     {
         private readonly BloggingPlatformDbContext _context;
+        private readonly Tag _tag;
         private readonly IMapper _mapper;
 
         public PostService(BloggingPlatformDbContext context, IMapper mapper)
@@ -56,6 +61,7 @@ namespace BloggingPlatform.Dal.Services
 
         public Models.Post Update(string slug, Models.Post post)
         {
+            
             var postEntity = _context.Posts.Where(x => x.Slug == slug).FirstOrDefault();
 
             postEntity.Slug = post.Title.ToLower().Replace(" ", "-");

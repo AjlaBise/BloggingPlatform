@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using BloggingPlatform.Dal.Helper;
+using BloggingPlatform.Dal.Models;
+using System.Collections.Generic;
 
 namespace BloggingPlatform.Dal.Services.Interface
 {
