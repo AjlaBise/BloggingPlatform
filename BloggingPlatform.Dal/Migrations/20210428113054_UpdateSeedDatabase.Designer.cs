@@ -4,14 +4,16 @@ using BloggingPlatform.Dal.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BloggingPlatform.Dal.Migrations
 {
     [DbContext(typeof(BloggingPlatformDbContext))]
-    partial class BloggingPlatformDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210428113054_UpdateSeedDatabase")]
+    partial class UpdateSeedDatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

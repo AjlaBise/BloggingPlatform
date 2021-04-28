@@ -25,14 +25,25 @@ namespace BloggingPlatform.Dal.Database
                  new Post
                  {
                      Id = 2,
-                     Slug = "augmented-reality-ios-application 2",
+                     Slug = "augmented-reality-ios-application-2",
                      Title = "Augmented Reality iOS Application 2",
                      Description = "Rubicon Software Development and Gazzda furniture are proud to launch an augmented reality app.",
                      Body = "The app is simple to use, and will help you decide on your best furniture fit.",
-                     Tag = Helper.Tag.IOS,
+                     Tag = Helper.Tag.AR,
                      CreatedAt = DateTime.Now.AddDays(-2),
                      UpdatedAt = DateTime.Now
-                 }
+                 },
+                  new Post
+                  {
+                      Id = 3,
+                      Slug = "augmented-reality-ios-application-3",
+                      Title = "Augmented Reality iOS Application 3",
+                      Description = "Rubicon Software Development and Gazzda furniture are proud to launch an augmented reality app.",
+                      Body = "The app is simple to use, and will help you decide on your best furniture fit.",
+                      Tag = Helper.Tag.Gazzda,
+                      CreatedAt = DateTime.Now.AddDays(-6),
+                      UpdatedAt = DateTime.Now.AddDays(-2)
+                  }                  
             );
 
             #endregion
