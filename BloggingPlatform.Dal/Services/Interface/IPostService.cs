@@ -12,6 +12,8 @@ namespace BloggingPlatform.Dal.Services.Interface
 
         Models.Post GetBySlug(string slug);
 
+        List<Models.Post> Get(PostSearchRequest request);
+
         Models.Post Update(string slug, Models.Post post);
 
         bool Delete(string slug);

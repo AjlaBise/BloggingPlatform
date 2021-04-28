@@ -31,6 +31,15 @@ namespace BloggingPlatform.Dal.Services
             return false;
         }
 
+        public List<Models.Post> Get(Models.PostSearchRequest request)
+        {
+            var query = _context.Posts.AsQueryable().Where(x => x.Tag == request.Tag);
+
+            var list = query.ToList();
+
+            return _mapper.Map<List<Models.Post>>(list);
+        }
+
         public List<Models.Post> GetAll()
         {
             var listPosts = _context.Posts.OrderByDescending(x => x.CreatedAt).ToList();

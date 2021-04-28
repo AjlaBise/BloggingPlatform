@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using BloggingPlatform.Dal.Models;
 using BloggingPlatform.Dal.Services.Interface;
 using Microsoft.AspNetCore.Mvc;
 
